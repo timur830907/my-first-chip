@@ -1,4 +1,3 @@
-# Tiny Tapeout project information
 yaml_version: 6
 
 project:
@@ -9,41 +8,36 @@ project:
   language:     "Verilog"
   clock_hz:     10000000
 
-  # How many tiles does your project need?
   tiles:        "1x1"
-
-  # Top module name (must match module name in src/project.v)
   top_module:   "tt_um_pwm_generator"
 
-  # List of Verilog source files
   source_files:
     - "project.v"
 
-# Pinout configuration
 pinout:
-  ui[0]: "duty[0]"
-  ui[1]: "duty[1]"
-  ui[2]: "duty[2]"
-  ui[3]: "duty[3]"
-  ui[4]: "duty[4]"
-  ui[5]: "duty[5]"
-  ui[6]: "duty[6]"
-  ui[7]: "duty[7]"
+  ui[0]: "Duty cycle bit 0"
+  ui[1]: "Duty cycle bit 1"
+  ui[2]: "Duty cycle bit 2"
+  ui[3]: "Duty cycle bit 3"
+  ui[4]: "Duty cycle bit 4"
+  ui[5]: "Duty cycle bit 5"
+  ui[6]: "Duty cycle bit 6"
+  ui[7]: "Duty cycle bit 7"
 
-  uo[0]: "pwm_out"
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "PWM Output"
+  uo[1]: "Unused"
+  uo[2]: "Unused"
+  uo[3]: "Unused"
+  uo[4]: "Unused"
+  uo[5]: "Unused"
+  uo[6]: "Unused"
+  uo[7]: "Unused"
 
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "Unused"
+  uio[1]: "Unused"
+  uio[2]: "Unused"
+  uio[3]: "Unused"
+  uio[4]: "Unused"
+  uio[5]: "Unused"
+  uio[6]: "Unused"
+  uio[7]: "Unused"
