@@ -1,4 +1,4 @@
-``default_nettype none
+`default_nettype none
 
 module tt_um_pwm_generator (
     input  wire [7:0] ui_in,    // Duty cycle input
@@ -6,7 +6,7 @@ module tt_um_pwm_generator (
     input  wire [7:0] uio_in,   // IOs: Input path
     output wire [7:0] uio_out,  // IOs: Output path
     output wire [7:0] uio_oe,   // IOs: Enable path
-    input  wire       ena,      // will go high when the design is enabled
+    input  wire       ena,      // always 1 when powered
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
@@ -21,15 +21,14 @@ module tt_um_pwm_generator (
         end
     end
 
-    // Формируем ШИМ-сигнал на первом выходе
+    // ШИМ на uo_out[0]
     assign uo_out[0] = (count < ui_in);
 
-    // Жестко подтягиваем оставшиеся выходы к 0, чтобы симулятор и OpenLane их не теряли
+    // Подвязываем остальное к нулю для precheck и OpenLane
     assign uo_out[7:1] = 7'b0000000;
     assign uio_out     = 8'b00000000;
     assign uio_oe      = 8'b00000000;
 
-    // Подавляем предупреждение о неиспользуемых входах
     wire _unused = &{ena, uio_in, 1'b0};
 
 endmodule
