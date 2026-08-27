@@ -9,5 +9,5 @@
   "FP_SIZING": "absolute",
   "DIE_AREA": "0 0 100 100",
   "PL_TARGET_DENSITY": 0.55,
-  "PL_RESERVE_PINS_AT_TOP": 1
+  "FP_DEF_TEMPLATE": "dir::../tt_submission/def/tt_block_1x1_pg.def"
 }
