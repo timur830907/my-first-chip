@@ -21,13 +21,19 @@ module tt_um_pwm_generator (
         end
     end
 
-    // ШИМ на uo_out[0]
-    assign uo_out[0] = (count < ui_in);
+    // Атрибут keep запрещает Yosys и OpenLane удалять сигналы и пины
+    (* keep *) wire [7:0] uo_out_int;
+    (* keep *) wire [7:0] uio_out_int;
+    (* keep *) wire [7:0] uio_oe_int;
 
-    // Подвязываем остальное к нулю для precheck и OpenLane
-    assign uo_out[7:1] = 7'b0000000;
-    assign uio_out     = 8'b00000000;
-    assign uio_oe      = 8'b00000000;
+    assign uo_out_int[0]   = (count < ui_in);
+    assign uo_out_int[7:1] = 7'b0000000;
+    assign uio_out_int     = 8'b00000000;
+    assign uio_oe_int      = 8'b00000000;
+
+    assign uo_out  = uo_out_int;
+    assign uio_out = uio_out_int;
+    assign uio_oe  = uio_oe_int;
 
     wire _unused = &{ena, uio_in, 1'b0};
 
