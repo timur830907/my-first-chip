@@ -1,0 +1,13 @@
+{
+  "DESIGN_NAME": "tt_um_pwm_generator",
+  "VERILOG_FILES": [
+    "dir::project.v"
+  ],
+  "CLOCK_PERIOD": 100,
+  "CLOCK_PORT": "clk",
+  "CLOCK_NET": "clk",
+  "FP_SIZING": "absolute",
+  "DIE_AREA": "0 0 100 100",
+  "PL_TARGET_DENSITY": 0.55,
+  "PL_RESERVE_PINS_AT_TOP": 1
+}
