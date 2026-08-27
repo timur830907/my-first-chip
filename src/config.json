@@ -9,5 +9,6 @@
   "FP_SIZING": "absolute",
   "DIE_AREA": "0 0 100 100",
   "PL_TARGET_DENSITY": 0.55,
-  "FP_DEF_TEMPLATE": "dir::../tt_submission/def/tt_block_1x1_pg.def"
+  "FP_DEF_TEMPLATE": "dir::../tt_submission/def/tt_block_1x1_pg.def",
+  "FP_PIN_ORDER_CFG": "dir::pin_order.cfg"
 }
