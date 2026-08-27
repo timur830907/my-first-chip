@@ -4,21 +4,22 @@ from cocotb.triggers import ClockCycles
 
 @cocotb.test()
 async def test_pwm(dut):
-    dut._log.info("Start PWM test")
-    
-    # Запуск тактового сигнала (10 МГц)
-    clock = Clock(dut.clk, 100, units="ns")
+    dut._log.info("Starting PWM Test")
+
+    # Тактовый сигнал
+    clock = Clock(dut.clk, 10, units="us")
     cocotb.start_soon(clock.start())
 
-    # Начальный сброс
-    dut.rst_n.value = 0
+    # Инициализация и сброс
     dut.ena.value = 1
-    dut.ui_in.value = 128 # Duty cycle 50% (128/256)
+    dut.ui_in.value = 0
     dut.uio_in.value = 0
-    
+    dut.rst_n.value = 0
     await ClockCycles(dut.clk, 10)
     dut.rst_n.value = 1
-    
-    # Ждем 300 тактов для работы ШИМ
+
+    # Проверка работы при 50% заполнения (128)
+    dut.ui_in.value = 128
     await ClockCycles(dut.clk, 300)
-    dut._log.info("PWM test completed successfully")
+
+    dut._log.info("Test finished successfully!")
